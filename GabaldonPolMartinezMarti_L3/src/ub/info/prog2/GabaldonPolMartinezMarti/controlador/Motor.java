@@ -4,11 +4,14 @@
  * and open the template in the editor.
  */
 package ub.info.prog2.GabaldonPolMartinezMarti.controlador;
+import ub.info.prog2.utils.MotorBasic;
+import java.io.Serializable;
 
 /**
- *
- * @author polg24
+ * De moment classe sense mètodes
+ * @author GabaldonPolMartinezMarti
  */
-public class NewClass {
-    
+public class Motor extends MotorBasic implements Serializable {
+    public Motor(){
+    }
 }
