@@ -12,13 +12,15 @@ import ub.info.prog2.GabaldonPolMartinezMarti.model.Dades;
  * Classe encarregada de gestionar la interacció entre els paquets vist i model, als mètodes d'aquesta classe simplement es criden als mètodes corresponents a la classe Dades
  * @author GabaldonPolMartinezMarti
  */
-public class Controlador implements InControlador {
+public abstract class Controlador implements InControlador {
     private Dades dades;
     private final Motor motor;
+    private EscoltadorReproduccio escoltador;
     
     public Controlador(){
         dades = new Dades();
         motor = new Motor();
+        escoltador = new EscoltadorReproduccio();
     }
     
     @Override
