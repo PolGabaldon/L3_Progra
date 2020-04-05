@@ -125,10 +125,9 @@ public class ReproductorUB3 {
                     break;
             }
 
-        } while(opcio!=ReproductorUB3.OpcionsMenuPrincipal.SORTIR);
+        } while(opcio != ReproductorUB3.OpcionsMenuPrincipal.SORTIR);
     }
         
-
     /**
      * Menu secundari
      * @param sc Objecte de tipus Scanner que permet accedir al teclat
@@ -269,10 +268,6 @@ public class ReproductorUB3 {
                         }
                     }
                     break;
-                    
-                case MENU_ANTERIOR:
-                   
-                    break;
             }
 
         } while(opcio!=ReproductorUB3.OpcionsGestioFitxers.MENU_ANTERIOR);
@@ -340,10 +335,6 @@ public class ReproductorUB3 {
                     }
                             
                     break;
-
-                case MENU_ANTERIOR:
-                   
-                    break;
             }
 
         } while(opcio!=ReproductorUB3.OpcionsAfegirFitxer.MENU_ANTERIOR);
@@ -351,5 +342,71 @@ public class ReproductorUB3 {
     
     public void gestioControlReproduccio(Scanner sc) {
         ReproductorUB3.OpcionsControlReproduccio opcio;
+        do {
+            // Mostrem les opcions del control de reproduccio
+            controlReproduccio.mostrarMenu();
+
+            // Demanem una opcio
+            opcio = controlReproduccio.getOpcio(sc);
+
+            // Fem les accions necessàries
+            switch(opcio) {
+                case REPRODUIR_FITXER_MULTIMEDIA:
+                    System.out.println("rep. fitxer");
+                break;
+                
+                case REPRODUIR_REPOSITORI:
+                    System.out.println("rep. repositori");
+                break;
+                
+                case REPRODUIR_PORTAFOLI:
+                    System.out.println("rep. un portafoli");
+                break;
+                
+                case ON_OFF_REPRODUCCIO_CICLICA:
+                    System.out.println("rep ciclica");
+                break;
+                
+                case ON_OFF_REPRODUCCIO_REVERSE:
+                    System.out.println("rep. reverse");
+                break;
+                
+                case GESTIO_REPRODUCCIO:
+                    gestioGestioReproduccio(sc);
+                break;
+            }
+
+        } while(opcio != ReproductorUB3.OpcionsControlReproduccio.MENU_ANTERIOR);
+    }
+    
+    public void gestioGestioReproduccio(Scanner sc) {
+        ReproductorUB3.OpcionsGestioReproduccio opcio;
+        do {
+            // Mostrem les opcions del control de reproduccio
+            gestioReproduccio.mostrarMenu();
+
+            // Demanem una opcio
+            opcio = gestioReproduccio.getOpcio(sc);
+
+            // Fem les accions necessàries
+            switch(opcio) {
+                    case PLAY:
+                    System.out.println("play");
+                break;
+                
+                case PAUSA:
+                    System.out.println("pausa");
+                break;
+                
+                case ATURA:
+                    System.out.println("atura");
+                break;
+                
+                case SALTA:
+                    System.out.println("salta");
+                break;
+            }
+
+        } while(opcio != ReproductorUB3.OpcionsGestioReproduccio.MENU_ANTERIOR);
     }
 }
