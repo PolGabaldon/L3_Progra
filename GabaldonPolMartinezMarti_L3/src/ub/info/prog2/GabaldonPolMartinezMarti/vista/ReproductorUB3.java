@@ -12,40 +12,60 @@ import ub.info.prog2.utils.ReproException;
  * gestionar la reproducció de fitxers.
  * @author GabaldonPolMartinezMarti
  */
-public class ReproductorUB2 {
+public class ReproductorUB3 {
     // Declarem les opcions per a referir-se a les opcions dels menus
-    static private enum OpcionsMenuPrincipal {GESTIO_FITXERS, GUARDAR_DADES, RECUPERAR_DADES, SORTIR};
-    static private enum OpcionsSubmenu1 {CREAR_PORTAFOLI, MOSTRAR_PORTAFOLIS, ELIMINAR_PORTAFOLI, AFEGIR_FITXER, MOSTRAR_FITXERS, ELIMINAR_FITXER, MENU_ANTERIOR};
-    static private enum OpcionsSubmenu2 {AFEGIR_AUDIO, AFEGIR_IMATGE, MENU_ANTERIOR};
+    static private enum OpcionsMenuPrincipal {GESTIO_FITXERS, CONTROL_REPRODUCCIO, GUARDAR_DADES, RECUPERAR_DADES, SORTIR};
+    static private enum OpcionsGestioFitxers {CREAR_PORTAFOLI, MOSTRAR_PORTAFOLIS, ELIMINAR_PORTAFOLI, AFEGIR_FITXER, MOSTRAR_FITXERS, 
+                                              ELIMINAR_FITXER, MENU_ANTERIOR};
+    static private enum OpcionsAfegirFitxer {AFEGIR_AUDIO, AFEGIR_IMATGE, MENU_ANTERIOR};
+    static private enum OpcionsControlReproduccio {REPRODUIR_FITXER_MULTIMEDIA, REPRODUIR_REPOSITORI, REPRODUIR_PORTAFOLI, 
+                                                   ON_OFF_REPRODUCCIO_CICLICA,  ON_OFF_REPRODUCCIO_REVERSE, GESTIO_REPRODUCCIO, MENU_ANTERIOR};
+    static private enum OpcionsGestioReproduccio {PLAY, PAUSA, ATURA, SALTA, MENU_ANTERIOR};
     
     // Declarem descripcions personalitzades per a les opcions del menu principal
-    static private String[] descMenuPrincipal={"Menú gestió dels fitxers",
-                                               "Guardar dades",
-                                               "Recuperar dades",
-                                               "Sortir"};
+    static private String[] descMenuPrincipal = {"Menú gestió dels fitxers", "Control Reproducció/Visió", "Guardar dades", "Recuperar dades", "Sortir"};
 
-    // Declarem descripcions personalitzades per a les opcions del menu secundari
-    static private String[] descMenu2={"Crear portafoli",
-                                                "Mostrar portafolis",
-                                                "Eliminar portafolis", "Agefir fitxer", "Mostrar fitxers", "Eliminar fitxer", "Tornar al menú anterior"};
+    // Declarem descripcions personalitzades per a les opcions de la gestio de fitxers
+    static private String[] descGestioFitxers = {"Crear portafoli", "Mostrar portafolis", "Eliminar portafolis", "Agefir fitxer",
+                                                 "Mostrar fitxers", "Eliminar fitxer", "Tornar al menú anterior"};
     
-    // Declarem descripcions personalitzades pera  les opcions del darrer menu
-    static private String[] descMenu3={"Afegir fitxer d'àudio","Afegir fitxer d'imatge","Tornar al menú anterior"};
+    // Declarem descripcions personalitzades per a les opcions d'afegir fitxers
+    static private String[] descAfegirFitxer = {"Afegir fitxer d'àudio","Afegir fitxer d'imatge","Tornar al menú anterior"};
+    
+    // Declarem descripcions personalitzades per a les opcions de controlar la reproduccio
+    static private String[] descControlReproduccio = {"Reproduir un fitxer multimèdia","Reproduir el repositori","Reproduir un portafoli",
+                                                      "Activar/Desactivar la reproducció cíclica", "Activar/Desactivar la reproducció reverse",
+                                                      "Gestionar la reproducció", "Tornar al menú anterior"};
+    
+    // Declarem descripcions personalitzades per a les opcions d'afegir fitxers
+    static private String[] descGestioReproduccio = {"Play","Pausa","Atura", "Salta un fitxer", "Tornar al menú anterior"};
 
     /**
      * Fitxer principal. Crea el menú principal i uns menús secundaris
      * @param args the command line arguments
      */
-    private Menu<ReproductorUB2.OpcionsMenuPrincipal> menu;
-    private Menu<ReproductorUB2.OpcionsSubmenu1> subMenu1;
-    private Menu<ReproductorUB2.OpcionsSubmenu2> subMenu2;
+    private Menu<ReproductorUB3.OpcionsMenuPrincipal> menu;
+    private Menu<ReproductorUB3.OpcionsGestioFitxers> gestioFitxers;
+    private Menu<ReproductorUB3.OpcionsAfegirFitxer> afegirFitxer;
+    private Menu<ReproductorUB3.OpcionsControlReproduccio> controlReproduccio;
+    private Menu<ReproductorUB3.OpcionsGestioReproduccio> gestioReproduccio;
     private Controlador controlador;
     
    
-    public ReproductorUB2(){
-        menu = new Menu<>("Menu Principal",ReproductorUB2.OpcionsMenuPrincipal.values());
-        subMenu1 = new Menu<>("Gestió Fitxers",ReproductorUB2.OpcionsSubmenu1.values());
-        subMenu2 = new Menu<>("Afegir Fitxer",ReproductorUB2.OpcionsSubmenu2.values());
+    public ReproductorUB3(){
+        menu = new Menu<>("Menu Principal",ReproductorUB3.OpcionsMenuPrincipal.values());
+        gestioFitxers = new Menu<>("Gestió Fitxers",ReproductorUB3.OpcionsGestioFitxers.values());
+        afegirFitxer = new Menu<>("Afegir Fitxer",ReproductorUB3.OpcionsAfegirFitxer.values());
+        controlReproduccio = new Menu<>("Control Reproduccio",ReproductorUB3.OpcionsControlReproduccio.values());
+        gestioReproduccio = new Menu<>("Gestio Reproduccio",ReproductorUB3.OpcionsGestioReproduccio.values());
+        
+        // Assignem la descripció de les opcions
+        menu.setDescripcions(descMenuPrincipal);
+        gestioFitxers.setDescripcions(descGestioFitxers);
+        afegirFitxer.setDescripcions(descAfegirFitxer);
+        controlReproduccio.setDescripcions(descControlReproduccio);
+        gestioReproduccio.setDescripcions(descGestioReproduccio);
+        
         controlador = new Controlador();
 
     }
@@ -55,27 +75,26 @@ public class ReproductorUB2 {
      * @param sc Objecte de tipus Scanner que permet fer les entrades
      */
     public void gestioReproductorUB(Scanner sc){
-        
         String cami;
-        // Assignem la descripció de les opcions
-        menu.setDescripcions(descMenuPrincipal);
-        
-       
         int i;
-        ReproductorUB2.OpcionsMenuPrincipal opcio;
+        ReproductorUB3.OpcionsMenuPrincipal opcio;
         do {
             // Mostrem les opcions del menÃº
             menu.mostrarMenu();
 
             // Demanem una opcio
-            opcio=menu.getOpcio(sc);
+            opcio = menu.getOpcio(sc);
 
             // Fem les accions necessàries
             switch(opcio) {
                 case GESTIO_FITXERS:
-                    gestioMenu2(sc);
+                    gestioGestioFitxers(sc);
                     break;
-                   
+                
+                case CONTROL_REPRODUCCIO:
+                    gestioControlReproduccio(sc);
+                    break;
+                    
                 case GUARDAR_DADES:
                     System.out.println("Introdueix el camí del fitxer de disc on guardar les dades: ");
                     cami = sc.nextLine();
@@ -106,7 +125,7 @@ public class ReproductorUB2 {
                     break;
             }
 
-        } while(opcio!=ReproductorUB2.OpcionsMenuPrincipal.SORTIR);
+        } while(opcio!=ReproductorUB3.OpcionsMenuPrincipal.SORTIR);
     }
         
 
@@ -114,20 +133,17 @@ public class ReproductorUB2 {
      * Menu secundari
      * @param sc Objecte de tipus Scanner que permet accedir al teclat
      */
-    public void gestioMenu2(Scanner sc){
+    public void gestioGestioFitxers(Scanner sc){
         String nom;
         int opcio1, fitxer;
 
-        // Assignem la descripciÃ³ de les opcions
-        subMenu1.setDescripcions(descMenu2);
-
-        ReproductorUB2.OpcionsSubmenu1 opcio;
+        ReproductorUB3.OpcionsGestioFitxers opcio;
         do {
             // Mostrem les opcions del menÃº
-            subMenu1.mostrarMenu();
+            gestioFitxers.mostrarMenu();
 
             // Demanem una opcio
-            opcio=subMenu1.getOpcio(sc);
+            opcio = gestioFitxers.getOpcio(sc);
 
             // Fem les accions necessàries
             switch(opcio) {
@@ -171,7 +187,7 @@ public class ReproductorUB2 {
                                         
                     }
                     if(opcio1 == 1){
-                        gestioMenu3(sc);
+                        gestioAfegirFitxer(sc);
                     }
                     else if(opcio1 == 2){
                         System.out.println(controlador.showPortafolis().get(0));
@@ -259,26 +275,23 @@ public class ReproductorUB2 {
                     break;
             }
 
-        } while(opcio!=ReproductorUB2.OpcionsSubmenu1.MENU_ANTERIOR);
+        } while(opcio!=ReproductorUB3.OpcionsGestioFitxers.MENU_ANTERIOR);
     }
     /**
      * Menú terciari
      * @param sc Objecte de tipus Scanner per fer l'entrada de dades
      */
-    public void gestioMenu3(Scanner sc){
+    public void gestioAfegirFitxer(Scanner sc){
         String cami1, cami2, nom, codec;
         int i,j;
-        
-        // Assignem la descripciÃ³ de les opcions
-        subMenu2.setDescripcions(descMenu3);
 
-        ReproductorUB2.OpcionsSubmenu2 opcio;
+        ReproductorUB3.OpcionsAfegirFitxer opcio;
         do {
             // Mostrem les opcions del menÃº
-            subMenu2.mostrarMenu();
+            afegirFitxer.mostrarMenu();
 
             // Demanem una opcio
-            opcio=subMenu2.getOpcio(sc);
+            opcio = afegirFitxer.getOpcio(sc);
 
             // Fem les accions necessàries
             switch(opcio) {
@@ -333,6 +346,10 @@ public class ReproductorUB2 {
                     break;
             }
 
-        } while(opcio!=ReproductorUB2.OpcionsSubmenu2.MENU_ANTERIOR);
+        } while(opcio!=ReproductorUB3.OpcionsAfegirFitxer.MENU_ANTERIOR);
+    }
+    
+    public void gestioControlReproduccio(Scanner sc) {
+        ReproductorUB3.OpcionsControlReproduccio opcio;
     }
 }

@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class IniciadorReproductorUB {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
-        ReproductorUB2 repro = new ReproductorUB2();
+        ReproductorUB3 repro = new ReproductorUB3();
         repro.gestioReproductorUB(sc);
     }
 }
