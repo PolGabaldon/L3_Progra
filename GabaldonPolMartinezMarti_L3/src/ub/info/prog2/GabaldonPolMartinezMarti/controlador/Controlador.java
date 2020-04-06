@@ -12,7 +12,7 @@ import ub.info.prog2.GabaldonPolMartinezMarti.model.Dades;
  * Classe encarregada de gestionar la interacció entre els paquets vist i model, als mètodes d'aquesta classe simplement es criden als mètodes corresponents a la classe Dades
  * @author GabaldonPolMartinezMarti
  */
-public abstract class Controlador implements InControlador {
+public class Controlador implements InControlador {
     private Dades dades;
     private final Motor motor;
     private EscoltadorReproduccio escoltador;
@@ -88,4 +88,55 @@ public abstract class Controlador implements InControlador {
     public void removeFitxer(String titol, int i) throws ReproException{
         dades.removeFitxer(titol, i);
     }          
+
+    @Override
+    public void playFitxer(int i) throws ReproException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void openFinestraReproductor() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void closeFinestraReproductor() throws ReproException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void playLlista() throws ReproException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void playLlista(String string) throws ReproException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void resumeReproduccio() throws ReproException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void pauseReproduccio() throws ReproException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void stopReproduccio() throws ReproException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void jumpReproduccio() throws ReproException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    public void openFinestraMotor(){
+        this.motor.open();
+    }
+    public void closeFinestraMotor() throws ReproException{
+        this.motor.close();
+    }
 }
