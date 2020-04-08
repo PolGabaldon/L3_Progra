@@ -13,23 +13,47 @@ import ub.info.prog2.utils.EscoltadorReproduccioBasic;
  * @author marti
  */
 public class EscoltadorReproduccio extends EscoltadorReproduccioBasic {
-    public void iniciarReproduccio(LlistaFitxers llistaReproduint, boolean reproduccioCilcica){
+    private LlistaFitxers llistaReproduint;
+    private boolean reproduccioCiclica;
+    private boolean reproduccioReverse;
+    
+    public EscoltadorReproduccio(){
+        reproduccioCiclica = false;
+        reproduccioReverse = false;
+    }
+            
+
+
+    public void iniciarReproduccio(LlistaFitxers llistaReproduint, boolean reproduccioCiclica, boolean reproduccioRverse){
+        int k;
+        this.llistaReproduint = llistaReproduint;
+        if(reproduccioReverse){
+            llistaReproduint.getAt(0).reproduir();           
+        }
         
+        else{
+            k = llistaReproduint.getSize() - 1;
+            llistaReproduint.getAt(k).reproduir();
+            
+        }
+            
     }
 
     @Override
     protected void onEndFile() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(hasNext()){
+            
+        }
     }
 
     @Override
     protected void next() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     protected boolean hasNext() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+
     
 }
