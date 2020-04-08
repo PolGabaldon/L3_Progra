@@ -196,7 +196,7 @@ public class ReproductorUB3 {
                         System.out.println("Quin dels fitxers del repositori vols afegir?");
                         fitxer = sc.nextInt();
                         try{
-                        controlador.addFitxer(nom, fitxer);
+                            controlador.addFitxer(nom, fitxer);
                         }
                         catch(ReproException e){
                             System.out.println(e.toString());

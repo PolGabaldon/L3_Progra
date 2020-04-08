@@ -61,8 +61,10 @@ public class Dades implements Serializable{
         
         String nomIm = fitxerImatge.getName(), nomAu = audio.getNomFitxer();
         String imExt = nomIm.substring(nomIm.lastIndexOf(".")), auExt = nomAu.substring(nomAu.lastIndexOf("."));
-        if (isImatge(imExt) && isAudio(auExt))
+        if (isImatge(imExt) && isAudio(auExt)){
             repositori.addFitxer(audio);
+        }
+        
         else
             throw new ReproException("Error a l'afegir el fitxer.");
     }
@@ -82,8 +84,9 @@ public class Dades implements Serializable{
         
         String nomIm = imatge.getNomFitxer();
         String imExt = nomIm.substring(nomIm.lastIndexOf("."));
-        if (isImatge(imExt))
+        if (isImatge(imExt)){
             repositori.addFitxer(imatge);
+        }
         else
             throw new ReproException("Error a l'afegir el fitxer.");
     }
@@ -323,5 +326,14 @@ public class Dades implements Serializable{
         }
         
         return portafoli;
+    }
+    
+    public File getFitxer(int i) throws ReproException{
+        if (i > 0 && i <= repositori.getSize()){
+            return repositori.getAt(i - 1);
+        }
+        else{
+            throw new ReproException("L'index està fora de límits.");
+        }
     }
 }
