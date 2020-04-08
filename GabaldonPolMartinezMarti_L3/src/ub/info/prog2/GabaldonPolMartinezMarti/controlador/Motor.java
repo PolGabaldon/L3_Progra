@@ -10,20 +10,27 @@ import java.io.Serializable;
 import ub.info.prog2.GabaldonPolMartinezMarti.model.Audio;
 import ub.info.prog2.GabaldonPolMartinezMarti.model.Imatge;
 import ub.info.prog2.utils.EscoltadorReproduccioBasic;
+import ub.info.prog2.utils.ReproException;
 
 /**
  * De moment classe sense mètodes
  * @author GabaldonPolMartinezMarti
  */
 public class Motor extends MotorBasic implements Serializable {
-    public Motor(){
-        super("C:\\Program Files\\VideoLAN\\VLC", controlador);
+    public Motor(EscoltadorReproduccio hola){
+        super("C:\\Program Files\\VideoLAN\\VLC", hola);
     }
 
-    void reprodueix(Imatge im, Imatge thumbnail, int durada){
-        play(im,thumbnail,durada);
+    public void reprodueix(Imatge im) throws ReproException{     
+        super.show(im);
     }
-    void reprodueix(Audio audio, File fitxerImatge){
-        play(audio, fitxerImatge);
+    
+    public void reprodueix(Audio audio, File fitxerImatge) throws ReproException{
+        super.play(audio,fitxerImatge);
     }
+    public void mostraImatge(File fitxerImatge, int i) throws ReproException{
+        super.show(fitxerImatge, i);
+    }
+
+   
 }

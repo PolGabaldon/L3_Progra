@@ -14,7 +14,7 @@ import ub.info.prog2.GabaldonPolMartinezMarti.controlador.Motor;
 public abstract class FitxerMultimedia extends File implements InFile {
     private String autor;
     private String codec;
-    private Motor motor;
+    protected Motor motor;
     
     /**
      * Constructor que inicialitza l'autor a Desconegut

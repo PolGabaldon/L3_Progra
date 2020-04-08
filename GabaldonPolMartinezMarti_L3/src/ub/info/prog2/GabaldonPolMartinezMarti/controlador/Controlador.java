@@ -19,8 +19,9 @@ public class Controlador implements InControlador {
     
     public Controlador(){
         dades = new Dades();
-        motor = new Motor();
         escoltador = new EscoltadorReproduccio();
+        motor = new Motor(escoltador);
+
     }
     
     @Override

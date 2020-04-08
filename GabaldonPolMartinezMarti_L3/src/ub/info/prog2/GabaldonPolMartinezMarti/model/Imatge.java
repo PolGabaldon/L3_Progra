@@ -32,7 +32,7 @@ public class Imatge extends FitxerMultimedia {
      */
     @Override
     public void reproduir() throws ReproException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        motor.reprodueix(this);
     }
     
     /**
