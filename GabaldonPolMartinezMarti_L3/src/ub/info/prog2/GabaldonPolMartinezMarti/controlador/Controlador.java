@@ -5,9 +5,11 @@
  */
 package ub.info.prog2.GabaldonPolMartinezMarti.controlador;
 import java.util.List;
+import java.io.File;
 import ub.info.prog2.utils.InControlador;
 import ub.info.prog2.utils.ReproException;
 import ub.info.prog2.GabaldonPolMartinezMarti.model.Dades;
+import ub.info.prog2.GabaldonPolMartinezMarti.model.LlistaFitxers;
 /**
  * Classe encarregada de gestionar la interacció entre els paquets vist i model, als mètodes d'aquesta classe simplement es criden als mètodes corresponents a la classe Dades
  * @author GabaldonPolMartinezMarti
@@ -16,12 +18,15 @@ public class Controlador implements InControlador {
     private Dades dades;
     private final Motor motor;
     private EscoltadorReproduccio escoltador;
+    private boolean ciclica;
+    private boolean reverse;
     
     public Controlador(){
         dades = new Dades();
         escoltador = new EscoltadorReproduccio();
         motor = new Motor(escoltador);
-
+        ciclica = false;
+        reverse = false;
     }
     
     @Override
@@ -92,7 +97,10 @@ public class Controlador implements InControlador {
 
     @Override
     public void playFitxer(int i) throws ReproException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        File fitxer = dades.getFitxer(i);
+        LlistaFitxers llista = new LlistaFitxers(1);
+        llista.addFitxer(fitxer);
+        escoltador.iniciarReproduccio(llista, ciclica, reverse);
     }
 
     @Override
