@@ -17,8 +17,8 @@ import ub.info.prog2.utils.ReproException;
  * @author GabaldonPolMartinezMarti
  */
 public class Motor extends MotorBasic implements Serializable {
-    public Motor(EscoltadorReproduccio hola){
-        super("C:\\Program Files\\VideoLAN\\VLC", hola);
+    public Motor(EscoltadorReproduccio esc){
+        super("C:\\Program Files\\VideoLAN\\VLC", esc);
     }
 
     public void reprodueix(Imatge im) throws ReproException{     
