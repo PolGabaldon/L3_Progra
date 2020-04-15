@@ -341,6 +341,8 @@ public class ReproductorUB3 {
     }
     
     public void gestioControlReproduccio(Scanner sc) {
+        int i;
+        String opcio1;
         ReproductorUB3.OpcionsControlReproduccio opcio;
         do {
             // Mostrem les opcions del control de reproduccio
@@ -352,15 +354,37 @@ public class ReproductorUB3 {
             // Fem les accions necessàries
             switch(opcio) {
                 case REPRODUIR_FITXER_MULTIMEDIA:
-                    System.out.println("rep. fitxer");
+                    System.out.println(controlador.showRepositori().get(0));
+                    System.out.println("Tria el fitxer a reproduir: ");
+                    i = sc.nextInt();
+                    try{
+                        controlador.playFitxer(i);
+                    }
+                    catch(ReproException e){
+                        System.out.println(e.toString());                                                                            
+                    }
+                                
                 break;
                 
                 case REPRODUIR_REPOSITORI:
-                    System.out.println("rep. repositori");
+                    try{
+                        controlador.playLlista();
+                    }
+                    catch(ReproException e){
+                        System.out.println(e.toString());
+                    }
                 break;
                 
                 case REPRODUIR_PORTAFOLI:
-                    System.out.println("rep. un portafoli");
+                    System.out.println(controlador.showPortafolis().get(0));                    
+                    System.out.println("Quin portafoli vols reproduir?");
+                    opcio1 = sc.nextLine();
+                    try{
+                        controlador.playLlista(opcio1);
+                    }
+                    catch(ReproException e){
+                        System.out.println(e.toString());
+                    }
                 break;
                 
                 case ON_OFF_REPRODUCCIO_CICLICA:

@@ -37,6 +37,7 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic {
         if(!reproduccioReverse){
             reproduint = 0;
             ((FitxerMultimedia)llistaReproduint.getAt(reproduint)).reproduir();           
+            
         }
         
         else{
