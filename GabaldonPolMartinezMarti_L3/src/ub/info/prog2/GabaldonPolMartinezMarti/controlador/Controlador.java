@@ -115,33 +115,34 @@ public class Controlador implements InControlador {
 
     @Override
     public void playLlista() throws ReproException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        escoltador.iniciarReproduccio(dades.getRepositori(), ciclica, reverse);
     }
 
     @Override
-    public void playLlista(String string) throws ReproException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void playLlista(String titol) throws ReproException {
+        escoltador.iniciarReproduccio(dades.getPortafoli(titol), ciclica, reverse);
     }
 
     @Override
     public void resumeReproduccio() throws ReproException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        motor.resume();
     }
 
     @Override
     public void pauseReproduccio() throws ReproException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        motor.pause();
     }
 
     @Override
     public void stopReproduccio() throws ReproException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        motor.stop();
     }
 
     @Override
     public void jumpReproduccio() throws ReproException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        escoltador.skip();
     }
+    
     public void openFinestraMotor(){
         this.motor.open();
     }
