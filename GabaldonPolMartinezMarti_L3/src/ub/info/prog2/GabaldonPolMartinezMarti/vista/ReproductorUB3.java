@@ -120,7 +120,13 @@ public class ReproductorUB3 {
                     break;
                 
                 case SORTIR:
-                   
+                    try {
+                        controlador.closeFinestraMotor();
+                    }
+                    catch (ReproException e) {
+                        System.out.println(e.toString());
+                    }
+                    
                     System.out.println("Chao bambino!");
                     break;
             }

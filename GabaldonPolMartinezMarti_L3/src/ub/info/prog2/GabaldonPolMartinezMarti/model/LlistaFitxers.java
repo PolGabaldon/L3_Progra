@@ -50,10 +50,9 @@ public class LlistaFitxers implements InFileList, Serializable{
     public void addFitxer(File file) throws ReproException {
         if(file.exists()){
             llistaFitxers.add(file);
-            System.out.println("Fitxer afegit.");
         }
         else{
-            throw new ReproException();
+            throw new ReproException("El fitxer no existeis.");
         }
     }
     
