@@ -160,4 +160,12 @@ public class Controlador implements InControlador {
     public void changeReverse() {
         reverse = !reverse;
     }
+    
+    public boolean getCiclica() {
+        return ciclica;
+    }
+    
+    public boolean getReverse() {
+        return reverse;
+    }
 }
