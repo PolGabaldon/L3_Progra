@@ -5,8 +5,11 @@
  */
 package ub.info.prog2.GabaldonPolMartinezMarti.controlador;
 
+import ub.info.prog2.GabaldonPolMartinezMarti.model.FitxerMultimedia;
 import ub.info.prog2.GabaldonPolMartinezMarti.model.LlistaFitxers;
 import ub.info.prog2.utils.EscoltadorReproduccioBasic;
+import ub.info.prog2.utils.ReproException;
+
 
 /**
  *
@@ -16,6 +19,8 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic {
     private LlistaFitxers llistaReproduint;
     private boolean reproduccioCiclica;
     private boolean reproduccioReverse;
+    private int reproduint;
+    private int nombreFitxers;
     
     public EscoltadorReproduccio(){
         reproduccioCiclica = false;
@@ -24,34 +29,106 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic {
             
 
 
-    public void iniciarReproduccio(LlistaFitxers llistaReproduint, boolean reproduccioCiclica, boolean reproduccioRverse){
-        int k;
+    public void iniciarReproduccio(LlistaFitxers llistaReproduint, boolean reproduccioCiclica, boolean reproduccioReverse) throws ReproException{
         this.llistaReproduint = llistaReproduint;
-        if(reproduccioReverse){
-            llistaReproduint.getAt(0).reproduir();           
+        this.nombreFitxers = llistaReproduint.getSize();
+        this.reproduccioCiclica = reproduccioCiclica;
+        this.reproduccioReverse = reproduccioReverse;
+        if(!reproduccioReverse){
+            reproduint = 0;
+            ((FitxerMultimedia)llistaReproduint.getAt(reproduint)).reproduir();           
         }
         
         else{
-            k = llistaReproduint.getSize() - 1;
-            llistaReproduint.getAt(k).reproduir();
+            reproduint = llistaReproduint.getSize() - 1;
+            ((FitxerMultimedia) llistaReproduint.getAt(reproduint)).reproduir();
             
         }
             
+    }
+    
+    public void skip(){
+        onEndFile();
     }
 
     @Override
     protected void onEndFile() {
         if(hasNext()){
+            next();
+        }
+        else{
             
         }
     }
 
     @Override
     protected void next() {
+        if(reproduccioCiclica){
+            if(reproduccioReverse){
+                reproduint = (reproduint - 1) % nombreFitxers;
+                try{
+                    ((FitxerMultimedia) llistaReproduint.getAt(reproduint)).reproduir();
+                }
+                catch(ReproException e){
+                    
+                }
+            }
+            else{
+                reproduint = (reproduint + 1) % nombreFitxers;
+                try{
+                    ((FitxerMultimedia) llistaReproduint.getAt(reproduint)).reproduir();
+                }
+                catch(ReproException e){
+                    
+                }
+            }
+        }
+        else{
+            if(reproduccioReverse){
+                reproduint = reproduint - 1;
+                try{
+                    ((FitxerMultimedia) llistaReproduint.getAt(reproduint)).reproduir();
+                }
+                catch(ReproException e){
+                    
+                }                        
+            }
+            else{
+                reproduint = reproduint + 1;
+                try{
+                    ((FitxerMultimedia) llistaReproduint.getAt(reproduint)).reproduir();
+                }
+                catch(ReproException e){
+                    
+                }                  
+            }
+            
+        }
     }
-
     @Override
     protected boolean hasNext() {
+        if(reproduccioCiclica){
+            return true; 
+        }
+        else{
+            if(reproduccioReverse){
+                if(reproduint-1>0){
+                    return true;
+                }
+                else{
+                    return false;
+                }
+            }
+            else{
+                if(reproduint+1<nombreFitxers){
+                    return true;
+                }
+                else{
+                    return false;
+                }
+
+            }
+        }
     }
     
 
