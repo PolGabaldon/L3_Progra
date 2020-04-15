@@ -388,11 +388,13 @@ public class ReproductorUB3 {
                 break;
                 
                 case ON_OFF_REPRODUCCIO_CICLICA:
-                    System.out.println("rep ciclica");
+                    controlador.changeCiclica();
+                    System.out.println("S'ha canviat la reproducció a " + controlador.getCiclica());
                 break;
                 
                 case ON_OFF_REPRODUCCIO_REVERSE:
-                    System.out.println("rep. reverse");
+                    controlador.changeReverse();
+                    System.out.println("S'ha canviat la reproducció a " + controlador.getReverse());
                 break;
                 
                 case GESTIO_REPRODUCCIO:
