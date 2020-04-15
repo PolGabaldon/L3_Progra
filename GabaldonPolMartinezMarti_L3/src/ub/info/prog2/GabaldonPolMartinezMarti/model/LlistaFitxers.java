@@ -52,7 +52,7 @@ public class LlistaFitxers implements InFileList, Serializable{
             llistaFitxers.add(file);
         }
         else{
-            throw new ReproException("El fitxer no existeis.");
+            throw new ReproException("El fitxer no existeix.");
         }
     }
     

@@ -423,19 +423,39 @@ public class ReproductorUB3 {
             // Fem les accions necessàries
             switch(opcio) {
                     case PLAY:
-                    System.out.println("play");
+                    try{
+                        controlador.resumeReproduccio();
+                    }
+                    catch(ReproException e){
+                        System.out.println(e.toString());
+                    }
                 break;
                 
                 case PAUSA:
-                    System.out.println("pausa");
+                    try{
+                        controlador.pauseReproduccio();
+                    }
+                    catch(ReproException e){
+                        System.out.println(e.toString());
+                    }
                 break;
                 
                 case ATURA:
-                    System.out.println("atura");
+                    try{
+                        controlador.stopReproduccio();
+                    }
+                    catch(ReproException e){
+                        System.out.println(e.toString());
+                    }
                 break;
                 
                 case SALTA:
-                    System.out.println("salta");
+                    try{
+                        controlador.jumpReproduccio();
+                    }
+                    catch(ReproException e){
+                        System.out.println(e.toString());
+                    }
                 break;
             }
 
