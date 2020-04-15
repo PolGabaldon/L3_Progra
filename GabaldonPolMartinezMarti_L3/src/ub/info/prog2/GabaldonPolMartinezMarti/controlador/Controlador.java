@@ -97,6 +97,8 @@ public class Controlador implements InControlador {
 
     @Override
     public void playFitxer(int i) throws ReproException {
+        System.out.println(i);
+        openFinestraMotor();
         File fitxer = dades.getFitxer(i);
         LlistaFitxers llista = new LlistaFitxers(1);
         llista.addFitxer(fitxer);
@@ -146,7 +148,16 @@ public class Controlador implements InControlador {
     public void openFinestraMotor(){
         this.motor.open();
     }
+    
     public void closeFinestraMotor() throws ReproException{
         this.motor.close();
+    }
+    
+    public void changeCiclica() {
+        ciclica = !ciclica;
+    }
+    
+    public void changeReverse() {
+        reverse = !reverse;
     }
 }
