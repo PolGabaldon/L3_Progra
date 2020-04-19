@@ -11,6 +11,7 @@ import ub.info.prog2.utils.ReproException;
  */
 public class LlistaFitxers implements InFileList, Serializable{
     protected ArrayList<File> llistaFitxers;
+    protected boolean teMidaMax;
     protected int midaMax;
     
     /**
@@ -18,7 +19,8 @@ public class LlistaFitxers implements InFileList, Serializable{
      */
     public LlistaFitxers(){
         llistaFitxers = new ArrayList<>();
-        midaMax = 100;
+        teMidaMax = false;
+        // midaMax = 100;
     }
     
     /**
@@ -28,6 +30,7 @@ public class LlistaFitxers implements InFileList, Serializable{
      */
     public LlistaFitxers(int midaMax){
         llistaFitxers = new ArrayList<>();
+        teMidaMax = true;
         this.midaMax = midaMax;
     }
     
@@ -49,7 +52,15 @@ public class LlistaFitxers implements InFileList, Serializable{
     @Override
     public void addFitxer(File file) throws ReproException {
         if(file.exists()){
-            llistaFitxers.add(file);
+            if(!teMidaMax){
+                llistaFitxers.add(file);
+            }
+            else if(!isFull()){
+                llistaFitxers.add(file);               
+            }
+            else{
+                throw new ReproException("La llista està plena");
+            }
         }
         else{
             throw new ReproException("El fitxer no existeix.");

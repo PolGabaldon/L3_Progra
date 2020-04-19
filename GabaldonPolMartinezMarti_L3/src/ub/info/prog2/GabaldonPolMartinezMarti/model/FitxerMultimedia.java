@@ -35,7 +35,6 @@ public abstract class FitxerMultimedia extends File implements InFile {
      * @param cami Camí del fitxer
      * @param codec Codec del fitxer
      * @param motor Motor utilitzat en la reproducció del fitxer
-     * @param autor Autor del fitxer
      */
     protected FitxerMultimedia(String cami, String codec, Motor motor, String autor){
         super(cami);
@@ -128,7 +127,7 @@ public abstract class FitxerMultimedia extends File implements InFile {
     
     /**
      * Mètode abstracte per reproduir
-     * @throws ReproException 
+     * @throws ReproException La tira en cas d'error
      */
     public abstract void reproduir() throws ReproException;
 }

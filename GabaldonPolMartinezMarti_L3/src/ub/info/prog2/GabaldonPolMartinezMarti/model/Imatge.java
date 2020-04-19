@@ -28,7 +28,7 @@ public class Imatge extends FitxerMultimedia {
     
     /**
      * Reprodueix la imatge, encara no està implementat
-     * @throws ReproException 
+     * @throws ReproException La tira en cas d'error
      */
     @Override
     public void reproduir() throws ReproException {

@@ -216,7 +216,7 @@ public class Dades implements Serializable{
      * Mostra els fitxers d'un protafoli concret
      * @param titol Nom del portafoli
      * @return Fitxers del portafoli
-     * @throws ReproException 
+     * @throws ReproException La tira en cas d'error
      */
     public List<String> showPortafoli(String titol) throws ReproException{
         
@@ -235,7 +235,7 @@ public class Dades implements Serializable{
     /**
      * Elimina un portafoli
      * @param titol Nom del portafoli
-     * @throws ReproException 
+     * @throws ReproException La tira en cas d'error
      */
     public void removePortafoli(String titol) throws ReproException {
         if (existPortafoli(titol)) {
@@ -276,7 +276,7 @@ public class Dades implements Serializable{
      * Afegeix fitxer a un portafoli
      * @param titol Nom del protafoli
      * @param i Índex del fitxer en el repositori
-     * @throws ReproException 
+     * @throws ReproException La tira en cas d'error
      */
     public void addFitxer(String titol, int i) throws ReproException {
         if (existPortafoli(titol)) {
@@ -296,7 +296,7 @@ public class Dades implements Serializable{
      * Elimina fitxer d'un portafoli
      * @param titol Nom del portafoli
      * @param i Índex del fitxer
-     * @throws ReproException 
+     * @throws ReproException La tira en cas d'error
      */
     public void removeFitxer(String titol, int i) throws ReproException{
         if (existPortafoli(titol)) {
