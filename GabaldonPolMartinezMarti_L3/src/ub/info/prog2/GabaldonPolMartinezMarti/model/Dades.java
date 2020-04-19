@@ -66,7 +66,7 @@ public class Dades implements Serializable{
         }
         
         else
-            throw new ReproException("Error a l'afegir el fitxer.");
+            throw new ReproException("Error a l'afegir el fitxer. Els fitxers d'imatge acceptats són png, jpg, jpeg i els fitxers d'àudio acceptats són mp3 i wav.");
     }
     
     /**
