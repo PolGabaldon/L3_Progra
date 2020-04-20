@@ -394,12 +394,26 @@ public class ReproductorUB3 {
                 
                 case ON_OFF_REPRODUCCIO_CICLICA:
                     controlador.changeCiclica();
-                    System.out.println("S'ha canviat la reproducció a " + controlador.getCiclica());
+                    System.out.print("Cíclica: ");
+                    
+                    if (controlador.getCiclica()) {
+                        System.out.println("On");
+                    }
+                    else  {
+                        System.out.println("Off");
+                    }
                 break;
                 
                 case ON_OFF_REPRODUCCIO_REVERSE:
                     controlador.changeReverse();
-                    System.out.println("S'ha canviat la reproducció a " + controlador.getReverse());
+                    System.out.print("Reverse: ");
+                    
+                    if (controlador.getReverse()) {
+                        System.out.println("On");
+                    }
+                    else  {
+                        System.out.println("Off");
+                    }
                 break;
                 
                 case GESTIO_REPRODUCCIO:
