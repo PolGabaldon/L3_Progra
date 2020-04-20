@@ -126,7 +126,20 @@ public class Dades implements Serializable{
      * @throws ReproException Tira excepció en cas d'error
      */
     public void removeFitxer(int i) throws ReproException{
+        File f = repositori.getAt(i);
         repositori.removeFitxer(i);
+        Iterator<PortafoliFitxersMultimedia> iter = portafolis.iterator();
+        while (iter.hasNext()) {
+            
+            LlistaFitxers portaf = iter.next();
+            
+            for (int j = 0; j < portaf.getSize(); j++) {
+                if (portaf.getAt(i).equals(f)) {
+                    portaf.removeFitxer(j);
+                    j--;
+                }
+            }
+        }
     }
     
     /**
