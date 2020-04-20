@@ -41,7 +41,6 @@ public class PortafoliFitxersMultimedia extends LlistaFitxers {
      */
     @Override
     public void addFitxer(File file) throws ReproException {
-        System.out.println(autor + " Titol: " +  titol);               
         
         if(getSize() == 0){
             FitxerMultimedia fitxer = (FitxerMultimedia) file;

@@ -124,7 +124,7 @@ public class ReproductorUB3 {
                         controlador.closeFinestraMotor();
                     }
                     catch (ReproException e) {
-                        System.out.println(e.toString());
+                        //System.out.println(e.toString());
                     }
                     
                     System.out.println("Chao bambino!");
@@ -336,10 +336,7 @@ public class ReproductorUB3 {
                         controlador.addImatge(cami1, nom, codec, i, j);
                     }
                     catch(ReproException e){
-                        // Aquí pot passar que l'usuari obri i tanqui el programa sense que s'hagi obert el motor
-                        // Penso que la millor solució és simplement no tornar el missatge d'error
-                        // System.out.println(e.toString());                                                    
-                        
+                        System.out.println(e.toString());                                                                            
                     }
                             
                     break;

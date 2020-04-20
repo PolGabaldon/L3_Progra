@@ -16,8 +16,8 @@ import ub.info.prog2.GabaldonPolMartinezMarti.model.LlistaFitxers;
  */
 public class Controlador implements InControlador {
     private Dades dades;
-    private final Motor motor;
-    private EscoltadorReproduccio escoltador;
+    private transient final Motor motor;
+    private final EscoltadorReproduccio escoltador;
     private boolean ciclica;
     private boolean reverse;
     
