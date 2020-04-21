@@ -57,6 +57,8 @@ public class Controlador implements InControlador {
     @Override
     public void loadDades(String cami) throws ReproException{
         dades = Dades.loadDades(cami);
+        setMotor();
+
     }
 
     @Override
@@ -167,5 +169,9 @@ public class Controlador implements InControlador {
     
     public boolean getReverse() {
         return reverse;
+    }
+    
+    public void setMotor(){
+        dades.setMotor(motor);
     }
 }

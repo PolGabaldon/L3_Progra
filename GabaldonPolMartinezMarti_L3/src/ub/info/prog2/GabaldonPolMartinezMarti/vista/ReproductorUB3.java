@@ -474,4 +474,45 @@ public class ReproductorUB3 {
 
         } while(opcio != ReproductorUB3.OpcionsGestioReproduccio.MENU_ANTERIOR);
     }
+    
+    public void gestionar(){
+        try{
+        controlador.addAudio("C:\\Users\\marti\\Desktop\\Bad.mp3", "C:\\Users\\marti\\Desktop\\sel.jpg", "BadBunny", "12", 128);
+        }
+        catch(ReproException e){
+            System.out.println(e.toString()); 
+        }
+        try{
+        controlador.addAudio("C:\\Users\\marti\\Desktop\\Bunny.mp3", "C:\\Users\\marti\\Desktop\\sel.jpg", "BadBunny", "12", 128);
+        }
+        catch(ReproException e){
+            System.out.println(e.toString()); 
+        }
+        try{
+        controlador.addAudio("C:\\Users\\marti\\Desktop\\Bad.mp3", "C:\\Users\\marti\\Desktop\\sel.jpg", "Jusep", "12", 128);
+        }
+        catch(ReproException e){
+            System.out.println(e.toString()); 
+        }
+        try{
+        controlador.addAudio("C:\\Users\\marti\\Desktop\\Bad.mp3", "C:\\Users\\marti\\Desktop\\sel.jpg", "Bunn", "12", 128);
+        }
+        catch(ReproException e){
+            System.out.println(e.toString()); 
+        }
+        try{
+        controlador.addImatge("C:\\Users\\marti\\Desktop\\lular.jpg", "BadBunny", "12", 600, 800);
+        }
+        catch(ReproException e){
+            System.out.println(e.toString()); 
+        }
+        try{
+        controlador.addImatge("C:\\Users\\marti\\Desktop\\lular.jpg", "Jusep", "12", 600, 800);
+        }
+        catch(ReproException e){
+            System.out.println(e.toString()); 
+        }
+
+
+    }
 }

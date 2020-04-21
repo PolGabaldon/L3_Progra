@@ -130,4 +130,8 @@ public abstract class FitxerMultimedia extends File implements InFile {
      * @throws ReproException La tira en cas d'error
      */
     public abstract void reproduir() throws ReproException;
+    
+    public void setMotor(Motor motor){
+        this.motor = motor;
+    }
 }

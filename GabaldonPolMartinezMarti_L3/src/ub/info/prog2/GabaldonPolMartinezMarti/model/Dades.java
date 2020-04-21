@@ -190,7 +190,7 @@ public class Dades implements Serializable{
             }
         }
         else{
-            throw new ReproException("El fitxer on es volen guardar les dades no existeix.");
+            throw new ReproException("El fitxer d'on es volen carregar les dades no existeix.");
         }
     }
     
@@ -348,5 +348,13 @@ public class Dades implements Serializable{
         else{
             throw new ReproException("L'index està fora de límits.");
         }
+    }
+    
+    public void setMotor(Motor motor){
+        for(int i = 0; i<repositori.getSize(); i++){
+            ((FitxerMultimedia) repositori.getAt(i)).setMotor(motor);
+        }
+
+    
     }
 }
