@@ -18,7 +18,7 @@ public class LlistaFitxers implements InFileList, Serializable{
      */
     public LlistaFitxers(){
         llistaFitxers = new ArrayList<>();
-        midaMax = 1;
+        midaMax = 100;
     }
     
     /**
@@ -49,7 +49,6 @@ public class LlistaFitxers implements InFileList, Serializable{
     @Override
     public void addFitxer(File file) throws ReproException {
         if(file.exists()){
-            System.out.println(midaMax);
             if(!isFull()){
                 llistaFitxers.add(file);               
             }
