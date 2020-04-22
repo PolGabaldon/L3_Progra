@@ -63,10 +63,12 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic {
     }
 
     @Override
-    protected void next() {
+    protected void next() { 
+        System.out.println("Ciclica: " + reproduccioCiclica + ", Reverse: " + reproduccioReverse);
         if(reproduccioCiclica){
             if(reproduccioReverse){
-                reproduint = (reproduint - 1) % nombreFitxers;
+                System.out.println("Fitxer en reproduccio: " + (reproduint - 1) + ", Nombre Fitxers: " + nombreFitxers + ", repro mod nombreFitxers: " + ((((reproduint - 1) % nombreFitxers) + nombreFitxers) % nombreFitxers));
+                reproduint = (((reproduint - 1) % nombreFitxers) + nombreFitxers) % nombreFitxers;
                 try{
                     ((FitxerMultimedia) llistaReproduint.getAt(reproduint)).reproduir();
                 }
