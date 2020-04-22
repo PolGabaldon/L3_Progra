@@ -351,9 +351,9 @@ public class Dades implements Serializable{
     }
     
     public void setMotor(Motor motor){
-        for(int i = 0; i<repositori.getSize(); i++){
-            ((FitxerMultimedia) repositori.getAt(i)).setMotor(motor);
-        }
+      for(int i=0; i<repositori.getSize(); i++){
+        ((FitxerMultimedia) repositori.getAt(i)).setMotor(motor);
+      }
 
     
     }

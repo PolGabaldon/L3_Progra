@@ -100,7 +100,7 @@ public class Controlador implements InControlador {
     @Override
     public void playFitxer(int i) throws ReproException {
         System.out.println(i);
-        openFinestraMotor();
+        openFinestraReproductor();
         File fitxer = dades.getFitxer(i);
         LlistaFitxers llista = new LlistaFitxers(1);
         llista.addFitxer(fitxer);
@@ -109,21 +109,23 @@ public class Controlador implements InControlador {
 
     @Override
     public void openFinestraReproductor() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        openFinestraMotor();
     }
 
     @Override
     public void closeFinestraReproductor() throws ReproException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        closeFinestraMotor();
     }
 
     @Override
     public void playLlista() throws ReproException {
+        openFinestraReproductor();
         escoltador.iniciarReproduccio(dades.getRepositori(), ciclica, reverse);
     }
 
     @Override
     public void playLlista(String titol) throws ReproException {
+        openFinestraReproductor();
         escoltador.iniciarReproduccio(dades.getPortafoli(titol), ciclica, reverse);
     }
 

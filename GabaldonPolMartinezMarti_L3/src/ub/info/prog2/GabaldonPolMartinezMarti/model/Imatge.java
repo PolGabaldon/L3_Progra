@@ -46,4 +46,5 @@ public class Imatge extends FitxerMultimedia {
         return s;
     }
     
+
 }
