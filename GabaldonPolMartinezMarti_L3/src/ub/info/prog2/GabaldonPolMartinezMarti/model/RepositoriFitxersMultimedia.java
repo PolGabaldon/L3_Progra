@@ -70,6 +70,16 @@ public class RepositoriFitxersMultimedia extends LlistaFitxers {
         }
         return s;
     }
+    
+    /**
+     * Sobreescribiendo el método de Llista Fitxers para que siempra devuelva
+     * false, ya que el repositorio no debe tener medida maxima
+     * @return 
+     */
+    @Override
+    public boolean isFull() {
+        return false;
+    }
 }
 
     

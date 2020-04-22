@@ -11,7 +11,6 @@ import ub.info.prog2.utils.ReproException;
  */
 public class LlistaFitxers implements InFileList, Serializable{
     protected ArrayList<File> llistaFitxers;
-    protected boolean teMidaMax;
     protected int midaMax;
     
     /**
@@ -19,8 +18,7 @@ public class LlistaFitxers implements InFileList, Serializable{
      */
     public LlistaFitxers(){
         llistaFitxers = new ArrayList<>();
-        teMidaMax = false;
-        // midaMax = 100;
+        midaMax = 1;
     }
     
     /**
@@ -30,7 +28,6 @@ public class LlistaFitxers implements InFileList, Serializable{
      */
     public LlistaFitxers(int midaMax){
         llistaFitxers = new ArrayList<>();
-        teMidaMax = true;
         this.midaMax = midaMax;
     }
     
@@ -52,10 +49,8 @@ public class LlistaFitxers implements InFileList, Serializable{
     @Override
     public void addFitxer(File file) throws ReproException {
         if(file.exists()){
-            if(!teMidaMax){
-                llistaFitxers.add(file);
-            }
-            else if(!isFull()){
+            System.out.println(midaMax);
+            if(!isFull()){
                 llistaFitxers.add(file);               
             }
             else{
