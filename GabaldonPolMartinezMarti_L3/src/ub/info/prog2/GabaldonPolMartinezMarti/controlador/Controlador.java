@@ -114,14 +114,24 @@ public class Controlador implements InControlador {
 
     @Override
     public void playLlista() throws ReproException {
-        openFinestraReproductor();
-        escoltador.iniciarReproduccio(dades.getRepositori(), dades.getCiclica(), dades.getReverse());
+        if(dades.getRepositori().getSize()==0){
+            throw new ReproException("El repositori està buit.");
+        }
+        else{
+            openFinestraReproductor();
+            escoltador.iniciarReproduccio(dades.getRepositori(), dades.getCiclica(), dades.getReverse());
+        }
     }
 
     @Override
     public void playLlista(String titol) throws ReproException {
+        if(dades.getPortafoli(titol).getSize()==0){
+            throw new ReproException("El portafoli està buit.");
+        }
+        else{
         openFinestraReproductor();
         escoltador.iniciarReproduccio(dades.getPortafoli(titol), dades.getCiclica(), dades.getReverse());
+        }
     }
 
     @Override
