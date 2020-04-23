@@ -95,7 +95,6 @@ public class Controlador implements InControlador {
 
     @Override
     public void playFitxer(int i) throws ReproException {
-        System.out.println(i);
         openFinestraReproductor();
         File fitxer = dades.getFitxer(i);
         LlistaFitxers llista = new LlistaFitxers(1);

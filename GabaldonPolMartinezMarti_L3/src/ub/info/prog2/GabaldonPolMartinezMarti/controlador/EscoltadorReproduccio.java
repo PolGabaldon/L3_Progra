@@ -30,26 +30,21 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic {
 
 
     public void iniciarReproduccio(LlistaFitxers llistaReproduint, boolean reproduccioCiclica, boolean reproduccioReverse) throws ReproException{
-        if(llistaReproduint.getSize()==0){
-            throw new ReproException("La llista està buida");
+        this.llistaReproduint = llistaReproduint;
+        this.nombreFitxers = llistaReproduint.getSize();
+        this.reproduccioCiclica = reproduccioCiclica;
+        this.reproduccioReverse = reproduccioReverse;
+
+        if(!reproduccioReverse){
+            reproduint = 0;
+            ((FitxerMultimedia)llistaReproduint.getAt(reproduint)).reproduir();           
+
         }
+
         else{
-            this.llistaReproduint = llistaReproduint;
-            this.nombreFitxers = llistaReproduint.getSize();
-            this.reproduccioCiclica = reproduccioCiclica;
-            this.reproduccioReverse = reproduccioReverse;
-
-            if(!reproduccioReverse){
-                reproduint = 0;
-                ((FitxerMultimedia)llistaReproduint.getAt(reproduint)).reproduir();           
-
-            }
-
-            else{
-                reproduint = llistaReproduint.getSize() - 1;
-                ((FitxerMultimedia) llistaReproduint.getAt(reproduint)).reproduir();
-
-            }
+            reproduint = llistaReproduint.getSize() - 1;
+            ((FitxerMultimedia) llistaReproduint.getAt(reproduint)).reproduir();
+          
         }
             
     }

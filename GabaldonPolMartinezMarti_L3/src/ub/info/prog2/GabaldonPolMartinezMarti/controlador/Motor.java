@@ -9,7 +9,6 @@ import ub.info.prog2.utils.MotorBasic;
 import java.io.Serializable;
 import ub.info.prog2.GabaldonPolMartinezMarti.model.Audio;
 import ub.info.prog2.GabaldonPolMartinezMarti.model.Imatge;
-import ub.info.prog2.utils.EscoltadorReproduccioBasic;
 import ub.info.prog2.utils.ReproException;
 
 /**
