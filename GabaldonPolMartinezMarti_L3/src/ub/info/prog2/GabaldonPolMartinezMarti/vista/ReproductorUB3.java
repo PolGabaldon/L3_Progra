@@ -477,42 +477,33 @@ public class ReproductorUB3 {
     
     public void gestionar(){
         try{
-        controlador.addAudio("/home/polg24/Desktop/07-bruno_mars-talking_to_the_moon.mp3", "/home/polg24/Desktop/bolas.png", "bruno", "codec", 128);
-        }
-        catch(ReproException e){
-            System.out.println(e.toString()); 
-        }
-        try{
-        controlador.addAudio("/home/polg24/Desktop/07-bruno_mars-talking_to_the_moon.mp3", "/home/polg24/Desktop/Potato.jpg", "bruno", "kodak", 128);
-        }
-        catch(ReproException e){
-            System.out.println(e.toString()); 
-        }
-        try{
-        controlador.addAudio("/home/polg24/Desktop/01 Lay Me Down.mp3", "/home/polg24/Desktop/bolas.png", "Jusep", "codec", 128);
-        }
-        catch(ReproException e){
-            System.out.println(e.toString()); 
-        }
-        try{
-        controlador.addAudio("/home/polg24/Desktop/01 Lay Me Down.mp3", "/home/polg24/Desktop/Potato.jpg", "Jusep", "shuaa", 128);
-        }
-        catch(ReproException e){
-            System.out.println(e.toString()); 
-        }
-        try{
-        controlador.addImatge("/home/polg24/Desktop/bolas.png", "goku", "codec", 600, 800);
-        }
-        catch(ReproException e){
-            System.out.println(e.toString()); 
-        }
-        try{
-        controlador.addImatge("/home/polg24/Desktop/Potato.jpg", "pot", "codec", 600, 800);
-        }
-        catch(ReproException e){
-            System.out.println(e.toString()); 
-        }
+            controlador.addAudio("/home/polg24/Desktop/07-bruno_mars-talking_to_the_moon.mp3", "/home/polg24/Desktop/bolas.png", "bruno", "codec", 128);
+            controlador.addAudio("/home/polg24/Desktop/07-bruno_mars-talking_to_the_moon.mp3", "/home/polg24/Desktop/Potato.jpg", "bruno", "kodak", 128);
+            controlador.addAudio("/home/polg24/Desktop/01 Lay Me Down.mp3", "/home/polg24/Desktop/bolas.png", "Jusep", "codec", 128);
+            controlador.addAudio("/home/polg24/Desktop/01 Lay Me Down.mp3", "/home/polg24/Desktop/Potato.jpg", "Jusep", "shuaa", 128);
+            controlador.addImatge("/home/polg24/Desktop/bolas.png", "goku", "codec", 600, 800);
+            controlador.addImatge("/home/polg24/Desktop/Potato.jpg", "pot", "codec", 600, 800);
+        
+            controlador.addPortafoli("bruno");
+            controlador.addPortafoli("Jusep");
+            controlador.addPortafoli("goku");
+            controlador.addPortafoli("pot");
 
+            controlador.addFitxer("bruno", 1);
+            controlador.addFitxer("bruno", 2);
+            controlador.addFitxer("bruno", 1);
+            controlador.addFitxer("Jusep", 3);
+            controlador.addFitxer("Jusep", 4);
+            controlador.addFitxer("Jusep", 3);
+            controlador.addFitxer("goku", 5);
+            controlador.addFitxer("goku", 5);
+            controlador.addFitxer("pot", 6);
+            controlador.addFitxer("pot", 6);
+            
+        }
+        catch(ReproException e){
+            System.out.println(e.toString()); 
+        }
 
     }
 }

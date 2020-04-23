@@ -20,6 +20,8 @@ import ub.info.prog2.utils.ReproException;
 public class Dades implements Serializable{
     private RepositoriFitxersMultimedia repositori;
     private ArrayList<PortafoliFitxersMultimedia> portafolis;
+    private boolean ciclica;
+    private boolean reverse;
     
     /**
      * Crea un repositori per guardar fitxers i un ArrayList per guardar els portafolis de fitxers
@@ -27,6 +29,8 @@ public class Dades implements Serializable{
     public Dades(){
         repositori = new RepositoriFitxersMultimedia();
         portafolis = new ArrayList<>();
+        ciclica = false;
+        reverse = false;
     }
     
     /**
@@ -35,6 +39,22 @@ public class Dades implements Serializable{
      */
     public RepositoriFitxersMultimedia getRepositori(){
         return repositori;
+    }
+    
+    public boolean getCiclica() {
+        return ciclica;
+    }
+    
+    public boolean getReverse() {
+        return reverse;
+    }
+    
+    public void changeCiclica() {
+        ciclica = !ciclica;
+    }
+    
+    public void changeReverse() {
+        reverse = !reverse;
     }
     
     /**

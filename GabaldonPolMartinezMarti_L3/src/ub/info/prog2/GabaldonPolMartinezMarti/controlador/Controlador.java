@@ -18,15 +18,11 @@ public class Controlador implements InControlador {
     private Dades dades;
     private transient final Motor motor;
     private final EscoltadorReproduccio escoltador;
-    private boolean ciclica;
-    private boolean reverse;
     
     public Controlador(){
         dades = new Dades();
         escoltador = new EscoltadorReproduccio();
         motor = new Motor(escoltador);
-        ciclica = false;
-        reverse = false;
     }
     
     @Override
@@ -104,7 +100,7 @@ public class Controlador implements InControlador {
         File fitxer = dades.getFitxer(i);
         LlistaFitxers llista = new LlistaFitxers(1);
         llista.addFitxer(fitxer);
-        escoltador.iniciarReproduccio(llista, ciclica, reverse);
+        escoltador.iniciarReproduccio(llista, dades.getCiclica(), dades.getReverse());
     }
 
     @Override
@@ -120,13 +116,13 @@ public class Controlador implements InControlador {
     @Override
     public void playLlista() throws ReproException {
         openFinestraReproductor();
-        escoltador.iniciarReproduccio(dades.getRepositori(), ciclica, reverse);
+        escoltador.iniciarReproduccio(dades.getRepositori(), dades.getCiclica(), dades.getReverse());
     }
 
     @Override
     public void playLlista(String titol) throws ReproException {
         openFinestraReproductor();
-        escoltador.iniciarReproduccio(dades.getPortafoli(titol), ciclica, reverse);
+        escoltador.iniciarReproduccio(dades.getPortafoli(titol), dades.getCiclica(), dades.getReverse());
     }
 
     @Override
@@ -158,19 +154,19 @@ public class Controlador implements InControlador {
     }
     
     public void changeCiclica() {
-        ciclica = !ciclica;
+        dades.changeCiclica();
     }
     
     public void changeReverse() {
-        reverse = !reverse;
+        dades.changeReverse();
     }
     
     public boolean getCiclica() {
-        return ciclica;
+        return dades.getCiclica();
     }
     
     public boolean getReverse() {
-        return reverse;
+        return dades.getReverse();
     }
     
     public void setMotor(){
