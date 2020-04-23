@@ -6,7 +6,6 @@
 package ub.info.prog2.GabaldonPolMartinezMarti.controlador;
 import java.io.File;
 import ub.info.prog2.utils.MotorBasic;
-import java.io.Serializable;
 import ub.info.prog2.GabaldonPolMartinezMarti.model.Audio;
 import ub.info.prog2.GabaldonPolMartinezMarti.model.Imatge;
 import ub.info.prog2.utils.ReproException;
@@ -15,7 +14,7 @@ import ub.info.prog2.utils.ReproException;
  * De moment classe sense mètodes
  * @author GabaldonPolMartinezMarti
  */
-public class Motor extends MotorBasic implements Serializable {
+public class Motor extends MotorBasic {
     public Motor(EscoltadorReproduccio esc){
         super("C:\\Program Files\\VideoLAN\\VLC", esc);
     }

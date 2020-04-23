@@ -131,6 +131,10 @@ public abstract class FitxerMultimedia extends File implements InFile {
      */
     public abstract void reproduir() throws ReproException;
     
+    /**
+     * Setter de l'atribut motor
+     * @param motor Motor que se li entra per paràmetre
+     */
     public void setMotor(Motor motor){
         this.motor = motor;
     }

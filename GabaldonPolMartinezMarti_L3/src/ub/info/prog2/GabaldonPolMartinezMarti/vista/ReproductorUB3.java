@@ -344,7 +344,10 @@ public class ReproductorUB3 {
 
         } while(opcio!=ReproductorUB3.OpcionsAfegirFitxer.MENU_ANTERIOR);
     }
-    
+    /**
+     * Menú encarregat de mostrar les opcions relacionades amb la reproducció
+     * @param sc Objecte de tipus Scanner per fer l'entrada de dades
+     */
     public void gestioControlReproduccio(Scanner sc) {
         int i;
         String opcio1;
@@ -424,6 +427,10 @@ public class ReproductorUB3 {
         } while(opcio != ReproductorUB3.OpcionsControlReproduccio.MENU_ANTERIOR);
     }
     
+    /**
+     * Menú encarregat de mostrar les opcions durant una reproducció en curs
+     * @param sc Objecte de tipus Scanner per fer l'entrada de dades
+     */
     public void gestioGestioReproduccio(Scanner sc) {
         ReproductorUB3.OpcionsGestioReproduccio opcio;
         do {

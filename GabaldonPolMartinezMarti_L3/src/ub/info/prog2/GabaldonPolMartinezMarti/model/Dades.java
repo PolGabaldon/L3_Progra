@@ -41,18 +41,32 @@ public class Dades implements Serializable{
         return repositori;
     }
     
+    /**
+     * Getter de l'atribut ciclica
+     * @return Retorna si la reproducció cíclica està activada o no
+     */
     public boolean getCiclica() {
         return ciclica;
     }
     
+    /**
+     * Getter de l'atribut reverse
+     * @return Retorna si la reproducció reversa està activada o no
+     */
     public boolean getReverse() {
         return reverse;
     }
     
+    /**
+     * Mètode per canviar el tipus de reproducció cíclica
+     */
     public void changeCiclica() {
         ciclica = !ciclica;
     }
     
+    /**
+     * Mètode per canviar el tipus de reproducció reversa
+     */
     public void changeReverse() {
         reverse = !reverse;
     }
@@ -361,6 +375,12 @@ public class Dades implements Serializable{
         return portafoli;
     }
     
+    /**
+     * Retorna el fitxer en la posició i del repositori
+     * @param i Posició del fitxer que es vol accedir
+     * @return Fitxer a la posició i del repositori
+     * @throws ReproException Excepció si i és més gran que el nombre de fitxer o si és negativa
+     */
     public File getFitxer(int i) throws ReproException{
         if (i > 0 && i <= repositori.getSize()){
             return repositori.getAt(i - 1);
@@ -370,11 +390,13 @@ public class Dades implements Serializable{
         }
     }
     
+    /**
+     * Recorre el repositori i va afegint un motor a tots els fitxers
+     * @param motor Motor que s'assigna als fitxers
+     */
     public void setMotor(Motor motor){
       for(int i=0; i<repositori.getSize(); i++){
         ((FitxerMultimedia) repositori.getAt(i)).setMotor(motor);
       }
-
-    
     }
 }
