@@ -40,7 +40,7 @@ public class Controlador implements InControlador {
     @Override
     public void addAudio(String camiFitxerAudio, String camiFitxerImatge, String autor, String codec, int kbps) throws ReproException{
         if(escoltador.reproduccioIniciada() && dades.getRepositori().equals(escoltador.getLlistaReproduint())){
-            escoltador.incrementNombreFitxers;
+            escoltador.incrementNombreFitxers();
         }
         dades.addAudio(camiFitxerAudio,camiFitxerImatge,autor,codec,kbps, motor);
     }
@@ -56,6 +56,9 @@ public class Controlador implements InControlador {
      */
     @Override
     public void addImatge(String cami, String autor, String codec, int pixelsAlcada, int pixelsAmplada) throws ReproException{
+        if(escoltador.reproduccioIniciada() && dades.getRepositori().equals(escoltador.getLlistaReproduint())){
+            escoltador.incrementNombreFitxers();
+        }
         dades.addImatge(cami, autor, codec, pixelsAlcada, pixelsAmplada, motor);
     }
     
@@ -75,6 +78,12 @@ public class Controlador implements InControlador {
      */
     @Override
     public void removeFitxer(int i) throws ReproException{
+        if(escoltador.reproduccioIniciada() && dades.getRepositori().equals(escoltador.getLlistaReproduint())){
+            escoltador.decrementNombreFitxers();
+            if(escoltador.getReproduint()>=i){
+                escoltador.decrementReproduint();
+            }
+        }
         dades.removeFitxer(i);
     }
     
@@ -157,6 +166,9 @@ public class Controlador implements InControlador {
      */
     @Override
     public void addFitxer(String titol, int i) throws ReproException{
+        if(escoltador.reproduccioIniciada() && dades.getPortafoli(titol).equals(escoltador.getLlistaReproduint())){
+            escoltador.incrementNombreFitxers();
+        }
         dades.addFitxer(titol, i);
     }
 
@@ -168,6 +180,12 @@ public class Controlador implements InControlador {
      */
     @Override
     public void removeFitxer(String titol, int i) throws ReproException{
+        if(escoltador.reproduccioIniciada() && dades.getPortafoli(titol).equals(escoltador.getLlistaReproduint())){
+            escoltador.decrementNombreFitxers();
+            if(escoltador.getReproduint()>=i){
+                escoltador.decrementReproduint();
+            }
+        }
         dades.removeFitxer(titol, i);
     }          
 
