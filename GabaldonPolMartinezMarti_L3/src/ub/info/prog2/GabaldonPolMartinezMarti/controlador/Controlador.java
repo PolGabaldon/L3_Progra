@@ -86,7 +86,7 @@ public class Controlador implements InControlador {
         }
         dades.removeFitxer(i);
         if(dades.getRepositori().getSize()==0){
-            // Si s'està reproduint el darrer fitxer del portafoli i es borra, quedaran 0. Per tanttancarem la finestra per evitar errors.
+            // Si s'està reproduint el darrer fitxer del repositori i es borra, quedaran 0. Per tant tancarem la finestra per evitar errors.
             closeFinestraReproductor();
         }
     }
@@ -193,7 +193,7 @@ public class Controlador implements InControlador {
         }
         dades.removeFitxer(titol, i);
         if(dades.getPortafoli(titol).getSize()==0){
-            // Si s'està reproduint el darrer fitxer del portafoli i es borra, quedaran 0. Per tanttancarem la finestra per evitar errors.
+            // Si s'està reproduint el darrer fitxer del portafoli i es borra, quedaran 0. Per tant tancarem la finestra per evitar errors.
             closeFinestraReproductor();
         }
     }          
