@@ -285,6 +285,7 @@ public class Controlador implements InControlador {
     @Override
     public void stopReproduccio() throws ReproException {
         motor.stop();
+        closeFinestraReproductor();
     }
 
     /**

@@ -168,7 +168,7 @@ public class Dades implements Serializable{
             LlistaFitxers portaf = iter.next();
             
             for (int j = 0; j < portaf.getSize(); j++) {
-                if (portaf.getAt(i).equals(f)) {
+                if (portaf.getAt(j).equals(f)) {
                     portaf.removeFitxer(j);
                     j--;
                 }

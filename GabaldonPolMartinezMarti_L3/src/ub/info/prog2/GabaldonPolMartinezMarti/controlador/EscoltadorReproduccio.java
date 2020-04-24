@@ -153,7 +153,6 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic {
                 else{
                     return false;
                 }
-
             }
         }
     }
