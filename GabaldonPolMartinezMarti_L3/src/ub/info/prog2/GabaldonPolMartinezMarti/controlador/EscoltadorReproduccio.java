@@ -13,7 +13,7 @@ import ub.info.prog2.utils.ReproException;
 
 /**
  *
- * @author marti
+ * @author GabaldonPolMartinezMarti
  */
 public class EscoltadorReproduccio extends EscoltadorReproduccioBasic {
     private LlistaFitxers llistaReproduint;
@@ -22,13 +22,21 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic {
     private int reproduint;
     private int nombreFitxers;
     
+    /**
+     * Constructor de la classe, posa els atributs ciclica i reverse per defecte a false
+     */
     public EscoltadorReproduccio(){
         reproduccioCiclica = false;
         reproduccioReverse = false;
     }
-            
-
-
+    
+    /**
+     * Comença la reproducció d'una llista de fitxers o un sol fitxer
+     * @param llistaReproduint Llista que es vol reproduir, si és un sol fitxer serà una llista d'un sol fitxer
+     * @param reproduccioCiclica Indica si la reproducció cíclica està posada
+     * @param reproduccioReverse Indica si la reproducció reversa està posada
+     * @throws ReproException Tira excepció en cas d'error en la reproducció
+     */
     public void iniciarReproduccio(LlistaFitxers llistaReproduint, boolean reproduccioCiclica, boolean reproduccioReverse) throws ReproException{
         this.llistaReproduint = llistaReproduint;
         this.nombreFitxers = llistaReproduint.getSize();
@@ -49,10 +57,16 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic {
             
     }
     
+    /**
+     * Crida al mètode d'acabar cançó
+     */
     public void skip(){
         onEndFile();
     }
-
+    
+    /**
+     * Es crida quan s'acaba de reproduir un fitxer o quan es vol saltar. 
+     */
     @Override
     protected void onEndFile() {
         if(hasNext()){
@@ -63,6 +77,9 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic {
         }
     }
 
+    /**
+     * Passa a reproduir el següent fitxer de la llista, té en compte els mètodes de reproducció
+     */
     @Override
     protected void next() { 
         if(reproduccioCiclica){
@@ -107,6 +124,11 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic {
             
         }
     }
+    
+    /**
+     * Mira si la cançó té següent a la llista de reproducció
+     * @return Booleà si té següent cançó
+     */
     @Override
     protected boolean hasNext() {
         if(reproduccioCiclica){
