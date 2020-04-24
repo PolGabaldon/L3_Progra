@@ -187,6 +187,10 @@ public class Controlador implements InControlador {
             }
         }
         dades.removeFitxer(titol, i);
+        if(dades.getPortafoli(titol).getSize()==0){
+            // Si s'està reproduint el darrer fitxer del portafoli i es borra, quedaran 0. Per tanttancarem la finestra per evitar errors.
+            closeFinestraReproductor();
+        }
     }          
 
     /**
