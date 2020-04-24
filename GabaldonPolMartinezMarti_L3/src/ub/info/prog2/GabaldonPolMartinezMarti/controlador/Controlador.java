@@ -85,7 +85,12 @@ public class Controlador implements InControlador {
             }
         }
         dades.removeFitxer(i);
+        if(dades.getRepositori().getSize()==0){
+            // Si s'està reproduint el darrer fitxer del portafoli i es borra, quedaran 0. Per tanttancarem la finestra per evitar errors.
+            closeFinestraReproductor();
+        }
     }
+     
     
     /**
      * Crida el mètode corresponent a dades que guarda les dades i els fitxers
