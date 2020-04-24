@@ -167,6 +167,14 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic {
     }
     
     /**
+     * 
+     * @return El nombre del fitxer que s'està reproduint
+     */
+    public int getReproduint() {
+        return reproduint;
+    }
+    
+    /**
      * Resta 1 a l'int que guarda el fitxer que s'està reproduint 
      */
     public void decrementReproduint() {
