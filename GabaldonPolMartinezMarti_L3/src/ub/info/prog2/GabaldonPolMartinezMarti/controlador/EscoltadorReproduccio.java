@@ -21,6 +21,7 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic {
     private boolean reproduccioReverse;
     private int reproduint;
     private int nombreFitxers;
+    private boolean reproduccioIniciada;
     
     /**
      * Constructor de la classe, posa els atributs ciclica i reverse per defecte a false
@@ -28,6 +29,7 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic {
     public EscoltadorReproduccio(){
         reproduccioCiclica = false;
         reproduccioReverse = false;
+        reproduccioIniciada = false;
     }
     
     /**
@@ -42,6 +44,7 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic {
         this.nombreFitxers = llistaReproduint.getSize();
         this.reproduccioCiclica = reproduccioCiclica;
         this.reproduccioReverse = reproduccioReverse;
+        reproduccioIniciada = true;
 
         if(!reproduccioReverse){
             reproduint = 0;
@@ -144,7 +147,7 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic {
                 }
             }
             else{
-                if(reproduint+1<nombreFitxers){
+                if(reproduint+1 < nombreFitxers){
                     return true;
                 }
                 else{
@@ -155,6 +158,40 @@ public class EscoltadorReproduccio extends EscoltadorReproduccioBasic {
         }
     }
     
-
+    /**
+     * 
+     * @return La llista que s'està reproduint
+     */
+    public LlistaFitxers getLlistaReproduint() {
+        return llistaReproduint;
+    }
     
+    /**
+     * Resta 1 a l'int que guarda el fitxer que s'està reproduint 
+     */
+    public void decrementReproduint() {
+        reproduint--;
+    }
+    
+    /**
+     * Suma 1 al nombre de fitxers
+     */
+    public void incrementNombreFitxers() {
+        nombreFitxers++;
+    }
+    
+    /**
+     * Resta 1 al nombre de fitxers
+     */
+    public void decrementNombreFitxers() {
+        nombreFitxers--;
+    }
+    
+    /**
+     * 
+     * @return L'estat de reproduccio
+     */
+    public boolean reproduccioIniciada() {
+        return reproduccioIniciada;
+    }
 }
