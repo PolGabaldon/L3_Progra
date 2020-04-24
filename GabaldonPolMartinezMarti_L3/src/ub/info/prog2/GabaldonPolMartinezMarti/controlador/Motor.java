@@ -11,7 +11,7 @@ import ub.info.prog2.GabaldonPolMartinezMarti.model.Imatge;
 import ub.info.prog2.utils.ReproException;
 
 /**
- * De moment classe sense mètodes
+ * Classe per a la reproducció
  * @author GabaldonPolMartinezMarti
  */
 public class Motor extends MotorBasic {
