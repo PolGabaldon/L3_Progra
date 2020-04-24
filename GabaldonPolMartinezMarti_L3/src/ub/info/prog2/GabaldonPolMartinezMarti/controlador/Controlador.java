@@ -116,10 +116,10 @@ public class Controlador implements InControlador {
     }
 
     /**
-     * 
-     * @param titol
-     * @return
-     * @throws ReproException 
+     * Crida el mètode de dades que mostra els elements d'un portafoli
+     * @param titol Nom del portafoli
+     * @return Portafoli en concret
+     * @throws ReproException Torna excepció si no s'ha trobat el portafoli
      */
     @Override
     public List<String> showPortafoli(String titol) throws ReproException{
@@ -127,8 +127,8 @@ public class Controlador implements InControlador {
     }
 
     /**
-     * 
-     * @param titol
+     * Crida el mètode da dades que borra el portafoli amb el títol que se li entra per paràmetre
+     * @param titol Títol del portafoli que es vol borrar
      * @throws ReproException 
      */
     @Override
@@ -137,9 +137,9 @@ public class Controlador implements InControlador {
     }
 
     /**
-     * 
-     * @param titol
-     * @return 
+     * Crida el mètode de dades que retorna si existeix el protafoli amb el títol entrat per paràmetre
+     * @param titol Títol del portafoli que es vol saber si existeix
+     * @return Si existeix o no
      */
     @Override
     public boolean existPortafoli(String titol){
@@ -147,10 +147,10 @@ public class Controlador implements InControlador {
     }
 
     /**
-     * 
-     * @param titol
-     * @param i
-     * @throws ReproException 
+     * Crida el mètode de dades que afegeix un fitxer del repositori a un portafoli
+     * @param titol Nom del portafoli
+     * @param i Posició del fitxer dins el repositori
+     * @throws ReproException Tira excepció si no s'ha pogut afegir
      */
     @Override
     public void addFitxer(String titol, int i) throws ReproException{
@@ -158,10 +158,10 @@ public class Controlador implements InControlador {
     }
 
     /**
-     * 
-     * @param titol
-     * @param i
-     * @throws ReproException 
+     * Crida el mètode de dades que borra un fitxer d'un portafoli
+     * @param titol Títol del portafoli
+     * @param i Fitxer del portafoli a borrar
+     * @throws ReproException Tira excepció si no s'ha pogut borrar
      */
     @Override
     public void removeFitxer(String titol, int i) throws ReproException{
@@ -169,9 +169,9 @@ public class Controlador implements InControlador {
     }          
 
     /**
-     * 
-     * @param i
-     * @throws ReproException 
+     * Inicia la reproducció del fitxer en la posició i
+     * @param i Posició del fitxer
+     * @throws ReproException Tira excepció si no s'ha pogut reproduir
      */
     @Override
     public void playFitxer(int i) throws ReproException {
@@ -183,25 +183,25 @@ public class Controlador implements InControlador {
     }
 
     /**
-     * 
+     * Obri la finestra de reproducció
      */
     @Override
     public void openFinestraReproductor() {
-        openFinestraMotor();
+        this.motor.open();   
     }
 
     /**
-     * 
+     * Tanca la finestra de reproducció
      * @throws ReproException 
      */
     @Override
     public void closeFinestraReproductor() throws ReproException {
-        closeFinestraMotor();
+        this.motor.close();
     }
 
     /**
-     * 
-     * @throws ReproException 
+     * Comença a reproduir el repositori
+     * @throws ReproException Tira excepció si no s'ha pogut reproduir
      */
     @Override
     public void playLlista() throws ReproException {
@@ -215,9 +215,9 @@ public class Controlador implements InControlador {
     }
 
     /**
-     * 
-     * @param titol
-     * @throws ReproException 
+     * Comença a reproduir un portafoli
+     * @param titol Títol del portafoli
+     * @throws ReproException Tira excepció si hi ha hagut error al començar la reproducció
      */
     @Override
     public void playLlista(String titol) throws ReproException {
@@ -231,8 +231,8 @@ public class Controlador implements InControlador {
     }
 
     /**
-     * 
-     * @throws ReproException 
+     * Continua la reproducció
+     * @throws ReproException Tira excepció si no s'ha pogut continuar
      */
     @Override
     public void resumeReproduccio() throws ReproException {
@@ -240,8 +240,8 @@ public class Controlador implements InControlador {
     }
 
     /**
-     * 
-     * @throws ReproException 
+     * Pausa la reproducció en curs
+     * @throws ReproException Tira excepció si no s'ha pogut pausar
      */
     @Override
     public void pauseReproduccio() throws ReproException {
@@ -249,8 +249,8 @@ public class Controlador implements InControlador {
     }
 
     /**
-     * 
-     * @throws ReproException 
+     * Atura la reproducció en curs
+     * @throws ReproException Tira excepció si no s'ha pogut aturar
      */
     @Override
     public void stopReproduccio() throws ReproException {
@@ -258,61 +258,46 @@ public class Controlador implements InControlador {
     }
 
     /**
-     * 
-     * @throws ReproException 
+     * Salta al següent fitxer
+     * @throws ReproException Tira excepció si no s'ha pogut saltar
      */
     @Override
     public void jumpReproduccio() throws ReproException {
         escoltador.skip();
     }
-  
-    /**
-     * 
-     */
-    public void openFinestraMotor(){
-        this.motor.open();
-    }
     
     /**
-     * 
-     * @throws ReproException 
-     */
-    public void closeFinestraMotor() throws ReproException{
-        this.motor.close();
-    }
-    
-    /**
-     * 
+     * Crida el mètode de dades que canvia el tipus de reproducció de cíclia a no cíclia o a l'inversa
      */
     public void changeCiclica() {
         dades.changeCiclica();
     }
     
     /**
-     * 
+     * Crida el mètode de dades que canvia l'estat de la reproducció reversa 
      */
     public void changeReverse() {
         dades.changeReverse();
     }
     
     /**
-     * 
-     * @return 
+     * Crida el mètode de dades que retorna l'estat de la reproducció cíclica
+     * @return Booleà reproducció cílcia
      */
     public boolean getCiclica() {
         return dades.getCiclica();
     }
     
     /**
-     * 
-     * @return 
+     * Crida el mètode de dades que retorna l'estat de la reproducció reversa
+     * @return Booleà reproducció reversa
      */
     public boolean getReverse() {
         return dades.getReverse();
     }
     
     /**
-     * 
+     * Assigna un motor a tots els fitxers
      */
     public void setMotor(){
         dades.setMotor(motor);

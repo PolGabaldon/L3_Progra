@@ -121,7 +121,7 @@ public class ReproductorUB3 {
                 
                 case SORTIR:
                     try {
-                        controlador.closeFinestraMotor();
+                        controlador.closeFinestraReproductor();
                     }
                     catch (ReproException e) {
                         //System.out.println(e.toString());
