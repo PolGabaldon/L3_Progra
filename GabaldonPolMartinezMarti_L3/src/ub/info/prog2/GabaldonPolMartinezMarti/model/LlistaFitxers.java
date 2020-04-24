@@ -129,4 +129,28 @@ public class LlistaFitxers implements InFileList, Serializable{
         }
         return s;
     }
+    
+    /**
+     * Compara amb una altra llista
+     * @param llista Llista a comparar
+     * @return Si són iguals
+     */
+    public boolean equals(LlistaFitxers llista){
+        boolean iguals = true;
+        int i = 0;
+        if(getSize()!= llista.getSize()){
+            return false;
+        }
+        else{
+            while(!iguals && i<getSize()){
+                if(getAt(i).equals(llista.getAt(i))){
+                    i++;
+                }
+                else{
+                    iguals = false;
+                }
+            }
+            return iguals;
+        }
+    }
 }

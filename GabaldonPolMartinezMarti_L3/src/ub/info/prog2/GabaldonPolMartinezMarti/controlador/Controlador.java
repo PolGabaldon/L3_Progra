@@ -39,6 +39,9 @@ public class Controlador implements InControlador {
      */
     @Override
     public void addAudio(String camiFitxerAudio, String camiFitxerImatge, String autor, String codec, int kbps) throws ReproException{
+        if(escoltador.reproduccioIniciada() && dades.getRepositori().equals(escoltador.getLlistaReproduint())){
+            escoltador.incrementNombreFitxers;
+        }
         dades.addAudio(camiFitxerAudio,camiFitxerImatge,autor,codec,kbps, motor);
     }
     
@@ -302,4 +305,6 @@ public class Controlador implements InControlador {
     public void setMotor(){
         dades.setMotor(motor);
     }
+   
+    
 }
